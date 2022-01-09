@@ -1,7 +1,7 @@
 ## About
 
 - This is a test project that I've written to learn how to integrate a React frontend to a Solidity smart contract.
-- It's a smart contract that allows players to enter a lottery that picks a random winner.
+- It's a smart contract that allows players to enter a lottery that picks a random winner. You can view the repo [here](https://github.com/juliatan/solidity-lottery).
 - This app requires the user to have the Metamask extension installed.
 
 ### Packages
