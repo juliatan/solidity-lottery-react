@@ -1,54 +1,52 @@
 import web3 from './web3'
 
-const address = '0xAE7938AC7AB7D87e8B82239CB9FA2FE37788fE20'
+const address = '0xc2C591D85d303aCe0e3348BB6B2fBa6B44bFF0d4'
 const abi = [
+  { inputs: [], stateMutability: 'nonpayable', type: 'constructor', signature: 'constructor' },
   {
-    constant: true,
-    inputs: [],
-    name: 'manager',
-    outputs: [{ name: '', type: 'address' }],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    constant: false,
-    inputs: [],
-    name: 'pickWinner',
-    outputs: [],
-    payable: false,
-    stateMutability: 'nonpayable',
-    type: 'function',
-  },
-  {
-    constant: true,
-    inputs: [],
-    name: 'getPlayers',
-    outputs: [{ name: '', type: 'address[]' }],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    constant: false,
     inputs: [],
     name: 'enter',
     outputs: [],
-    payable: true,
     stateMutability: 'payable',
     type: 'function',
+    payable: true,
+    signature: '0xe97dcb62',
   },
   {
-    constant: true,
-    inputs: [{ name: '', type: 'uint256' }],
-    name: 'players',
-    outputs: [{ name: '', type: 'address' }],
-    payable: false,
+    inputs: [],
+    name: 'getPlayers',
+    outputs: [{ internalType: 'address payable[]', name: '', type: 'address[]' }],
     stateMutability: 'view',
     type: 'function',
+    constant: true,
+    signature: '0x8b5b9ccc',
   },
-  { inputs: [], payable: false, stateMutability: 'nonpayable', type: 'constructor' },
+  {
+    inputs: [],
+    name: 'manager',
+    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true,
+    signature: '0x481c6a75',
+  },
+  {
+    inputs: [],
+    name: 'pickWinner',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+    signature: '0x5d495aea',
+  },
+  {
+    inputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    name: 'players',
+    outputs: [{ internalType: 'address payable', name: '', type: 'address' }],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true,
+    signature: '0xf71d96cb',
+  },
 ]
-
 // This is the local copy of our smart contract - not the actual contract on the blockchain
 export default new web3.eth.Contract(abi, address)
