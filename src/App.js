@@ -36,11 +36,28 @@ function App() {
     setMessage('Waiting on transaction success...')
 
     try {
+      // pops up Metamask asking for confirmation you want to spend gas and send the transaction.
+      // Upon confirmation, it takes 15-30 seconds to process the transaction.
       await lottery.methods.enter().send({
         from: accounts[0],
         value: web3.utils.toWei(value, 'ether'),
       })
       setMessage('You have been entered!')
+    } catch (error) {
+      setMessage('Sorry, something went wrong')
+    }
+  }
+
+  const onClick = async () => {
+    const accounts = await web3.eth.getAccounts()
+
+    setMessage('Picking a winner...')
+
+    try {
+      await lottery.methods.pickWinner().send({
+        from: accounts[0],
+      })
+      setMessage('A winner has been picked!')
     } catch (error) {
       setMessage('Sorry, something went wrong')
     }
@@ -63,6 +80,9 @@ function App() {
         </div>
         <button>Enter</button>
       </form>
+      <hr />
+      <h4>Ready to pick a winner?</h4>
+      <button onClick={onClick}>Pick a winner!</button>
       <hr />
       <h1>{message}</h1>
     </div>
